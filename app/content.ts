@@ -1,0 +1,23 @@
+export const stages=[
+ {name:'Engrenagem',description:'Você trabalha para fazer o sistema girar. Se trabalha, recebe. Se para, a renda para.',next:'O próximo passo começa ao reconhecer a dependência da sua produção.'},
+ {name:'Gaiola de Ferro',description:'A estrutura é sua. Mas a renda continua dependendo das horas que você consegue vender.',next:'Seu próximo nível pede posicionamento, organização e construção de valor.'},
+ {name:'Despertar de Valor',description:'Você decidiu se valorizar, se posicionar e construir sua própria autoridade.',next:'Transforme seu posicionamento em uma experiência e uma entrega consistentes.'},
+ {name:'Gaiola de Ouro',description:'Sua hora vale mais. Sua reputação cresceu. Mas o seu tempo continua sendo o limite.',next:'A próxima construção é reduzir a dependência exclusiva da sua hora.'},
+ {name:'Despertar da Liberdade',description:'Você percebeu que valorizar sua hora não é o mesmo que deixar de depender dela.',next:'Negócios e patrimônio precisam começar a evoluir em paralelo.'},
+ {name:'Negócios',description:'Você transforma sua clínica em uma empresa, com equipe, processos e estratégia.',next:'Estruture uma operação que dependa menos da sua presença em cada decisão.'},
+ {name:'Patrimônio',description:'Você transforma renda em ativos, com diversificação, proteção e visão de longo prazo.',next:'Conecte a geração de caixa a uma estratégia patrimonial consistente.'},
+ {name:'Liberdade',description:'Você escolhe como, quando, onde e com quem trabalhar.',next:'Sustente suas escolhas e continue construindo o seu próximo nível.'}
+];
+export const faqs=[
+ ['Como funciona o Autodiagnóstico da Liberdade Médica?','É realizado no início do evento. Você avalia carreira, dependência da própria hora, clínica, os pilares STEPS, patrimônio, renda passiva e proteção. Ao longo dos dois dias, checkpoints ajudam a transformar essa leitura em decisões.'],
+ ['O que é o Mapa da Liberdade Médica?','É a organização do seu estágio atual, principais gargalos, diagnóstico STEPS e patrimonial, prioridades, próximo nível e próximas ações. É construído a partir da sua jornada e das respostas ao diagnóstico.'],
+ ['Como funciona o Plano de 12 Meses?','Você desenvolve seu próprio plano durante o Summit e o conecta à trilha FreeDoc$, estruturada a partir do diagnóstico. O horizonte de execução passa por 90 dias, 6 meses e 12 meses.'],
+ ['Preciso ter clínica para participar?','Não. O Summit contempla diferentes momentos: residência, início de carreira, plantões, consultório e clínica consolidada. A proposta é reconhecer seu estágio e organizar o próximo passo.'],
+ ['Negócios e Patrimônio são trilhas diferentes?','São duas construções paralelas, não alternativas excludentes. Uma organiza sua atividade empresarial; a outra transforma renda em ativos. As duas convergem para maior liberdade.'],
+ ['Qual a diferença entre o Summit 360 e o VIP?','O Summit 360 é guest only: não está à venda e depende de convite validado pela organização. O Summit VIP é uma experiência paga, limitada a 20 participantes, com benefícios adicionais, como concierge, valet, almoço com palestrantes e sessão estratégica individual.'],
+ ['Terá transmissão online e acesso às gravações?','O Summit 360 pode ser presencial ou online ao vivo, conforme a modalidade do convite. O VIP inclui acesso vitalício ao conteúdo gravado das aulas do Summit. Confirme a modalidade com a organização ao validar seu acesso.'],
+ ['O FreeDoc$ Summit é só sobre investimentos?','Não. A jornada conecta carreira, posicionamento, negócios, gestão, liderança e patrimônio. O foco é construir clareza sobre o próximo nível e um plano de execução.'],
+ ['Qual a política de reembolso ou transferência?','O regulamento completo ainda será disponibilizado pela organização. Solicite e consulte as condições aplicáveis antes de concluir qualquer pagamento. Os convites Summit 360 são individuais e intransferíveis.']
+];
+export const guestBenefits=['Acesso completo aos dois dias do Summit','Presencial ou online ao vivo, conforme o convite','Autodiagnóstico e Mapa da Liberdade Médica','Conexões com médicos e especialistas','Coffee breaks nos dois dias e coquetel de encerramento','Kit Summit 360 para participantes presenciais'];
+export const vipBenefits=['Assentos VIP à frente, com mesa de apoio','Concierge dedicada e valet parking','Almoço premium com palestrantes no 2º dia','Sessão Estratégica Diagnóstica Individual 1:1','Acesso vitalício às aulas gravadas','Fotos e vídeos profissionais','Kit Premium FreeDoc$ Summit','Credenciamento exclusivo VIP Fast Pass','Prioridade nas experiências e ativações','Networking em um grupo de apenas 20 participantes'];

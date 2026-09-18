@@ -1,0 +1,181 @@
+{
+  "speakers": {
+    "fernando-borges": {
+      "name": "Fernando Borges",
+      "role": "Médico Urologista, Empreendedor, Investidor, Fundador e CEO da FreeDoc$ Educação",
+      "badge": "Arquiteto da Trilha",
+      "img": "assets/speakers/fernando-borges.jpg",
+      "fallbackImg": "https://i.postimg.cc/9MmMWj0j/Whats-App-Image-2026-09-14-at-13-52-29.jpg",
+      "quote": "“Excelência médica é o ponto de partida; gestão, estratégia, empreendedorismo e patrimônio são os caminhos que transformam carreira em liberdade, mantendo seus princípios e valores.”",
+      "bio": [
+        "Fernando Borges Ribeiro é médico urologista, andrologista, uro-oncologista e cirurgião robótico, com mais de 25 anos de carreira e uma trajetória construída entre assistência médica, inovação, gestão e empreendedorismo.",
+        "Ao longo da carreira, fundou, estruturou e liderou diferentes operações na saúde, incluindo a UROLASER, um hospital urológico e outras clínicas, acumulando experiência prática em gestão, crescimento, formação de equipes, experiência do paciente e desenvolvimento de novos modelos de atendimento.",
+        "Também criou e desenvolveu projetos voltados à inovação, tecnologia e novos serviços médicos, sempre conectando excelência assistencial com visão empresarial.",
+        "Fernando viveu todas as fases da Trilha da Liberdade — da Engrenagem à Liberdade. Passou pela dependência da própria produção, pela gestão de clínicas, pela construção de negócios, pelo desenvolvimento de patrimônio e pela criação de novas fontes de renda. Foi essa experiência prática que formou a base da sua atuação na educação médica.",
+        "É fundador e CEO da FreeDoc$ Educação, ecossistema criado para ajudar médicos a desenvolverem mentalidade, gestão, liderança, vendas, finanças e patrimônio, transformando suas carreiras em estruturas mais organizadas, lucrativas e sustentáveis.",
+        "É também criador da Trilha da Liberdade e idealizador do FreeDoc$ Summit, onde atua como arquiteto dessa jornada, conectando especialistas, conteúdos e experiências para conduzir médicos da Engrenagem à Liberdade."
+      ]
+    },
+    "samer-agi": {
+      "name": "Samer Agi",
+      "role": "Advogado, Escritor, Palestrante · Fundador da Ser Mais Criativo · Ex-Juiz de Direito",
+      "badge": "Propósito & Oratória",
+      "img": "assets/speakers/samer-agi.jpg",
+      "fallbackImg": "https://i.postimg.cc/fLzLwhys/Whats-App-Image-2026-09-14-at-13-16-42.jpg",
+      "quote": "“Deixei poder, prestígio e segurança. Ganhei liberdade.”",
+      "bio": [
+        "Samer Agi é advogado, professor, escritor, palestrante e empreendedor. Foi delegado de Polícia e, aos 25 anos, tornou-se juiz de Direito, construindo uma carreira sólida e respeitada na magistratura por mais de oito anos.",
+        "Em 2022, tomou uma decisão que mudou completamente sua trajetória: deixou para trás a estabilidade e o prestígio de uma carreira pública para construir um novo caminho no empreendedorismo, na educação e na comunicação. Ao definir essa escolha, resumiu de forma poderosa: “Deixei poder, prestígio e segurança. Ganhei liberdade.”",
+        "Hoje, é fundador da Ser Mais Criativo e cofundador do CP Iuris, além de uma das principais referências brasileiras em oratória, comunicação e desenvolvimento pessoal, com forte presença e influência nas redes sociais.",
+        "No FreeDoc$ Summit, sua trajetória se conecta diretamente à essência da Trilha da Liberdade: a coragem de questionar um porto seguro, romper com uma estrutura que já não representa seus objetivos e construir uma vida com mais autonomia, propósito e liberdade."
+      ]
+    },
+    "juliano-plastina": {
+      "name": "Juliano Plastina",
+      "role": "Médico Urologista · Estrategista de Redes Sociais e IA para Médicos",
+      "badge": "Marketing Digital & IA",
+      "img": "assets/speakers/juliano-plastina.png",
+      "fallbackImg": "https://i.postimg.cc/1RjnjFj4/image.png",
+      "quote": "“Bons médicos prosperam muito mais quando aprendem não apenas a entregar excelência, mas também a comunicar seu valor e usar tecnologia com inteligência estratégica.”",
+      "bio": [
+        "Juliano Alcântara Plastina é médico cirurgião, urologista, cirurgião robótico, uro-oncologista e andrologista, com sólida trajetória na prática médica e cirúrgica.",
+        "Nos últimos anos, expandiu sua atuação para o ambiente digital, onde construiu forte presença e autoridade, demonstrando que excelência técnica e boa comunicação podem caminhar juntas. Sua trajetória mostra que, para crescer na medicina atual, não basta apenas ser um bom médico: é preciso também saber comunicar valor, construir confiança e ocupar estrategicamente o ambiente digital.",
+        "Fundador do PPE — Protocolo Presença Exponencial, Juliano atua na educação de médicos e profissionais da saúde, ensinando como transformar conhecimento técnico em posicionamento, influência e crescimento sustentável, sempre preservando a seriedade, a ética e a credibilidade profissional.",
+        "Também se destaca pelo trabalho com inteligência artificial aplicada à medicina, especialmente no desenvolvimento de ferramentas e soluções voltadas para médicos, unindo tecnologia, produtividade, comunicação e inovação à prática profissional.",
+        "No FreeDoc$ Summit, representa uma das transformações centrais da nova carreira médica: sair da dependência exclusiva do consultório e da indicação tradicional para construir marca, autoridade, tecnologia e novos canais de crescimento, ampliando impacto, fortalecendo a clínica e criando novas oportunidades profissionais."
+      ]
+    },
+    "valeria-ribeiro": {
+      "name": "Valéria Ribeiro",
+      "role": "Advogada e Economista · Servidora Federal · Legal Advisor da FreeDoc$",
+      "badge": "Jurídico & Patrimônio",
+      "img": "assets/speakers/valeria-ribeiro.jpg",
+      "fallbackImg": "https://i.postimg.cc/fLzLwhy4/Whats-App-Image-2026-09-14-at-13-17-48.jpg",
+      "quote": "“A liberdade médica também depende de segurança jurídica, organização empresarial e proteção do patrimônio construído ao longo da carreira.”",
+      "bio": [
+        "Valéria Borges Ribeiro é advogada, economista, mestre em Economia e especialista em Direito Empresarial e Tributário. Atua como Legal Advisor da FreeDoc$ e também docente servidora federal.",
+        "Há mais de 15 anos, orienta médicos, clínicas e empresas em decisões estratégicas relacionadas à estruturação de negócios, planejamento, proteção patrimonial e crescimento sustentável.",
+        "À frente da B2R Advocacia, combina conhecimento jurídico, visão econômica e estratégia empresarial para apoiar decisões mais seguras, eficientes e consistentes. Sua atuação vai além da análise legal: envolve identificar riscos, estruturar negócios, proteger patrimônios e criar bases sólidas para o crescimento.",
+        "Como Legal Advisor da FreeDoc$, Valéria contribui para ampliar a compreensão de que a liberdade médica também depende de segurança jurídica, organização empresarial e proteção do patrimônio construído ao longo da carreira.",
+        "No FreeDoc$ Summit 2026 — A Trilha da Liberdade Médica, Valéria representa um dos pilares fundamentais dessa jornada: crescer com estratégia, proteger o que foi conquistado e construir liberdade com segurança, estrutura e visão de longo prazo."
+      ]
+    },
+    "carlos-zambardino": {
+      "name": "Carlos Zambardino",
+      "role": "Advogado e Empreendedor · Liderança em Vendas de Alta Performance",
+      "badge": "Vendas & Liderança",
+      "img": "assets/speakers/carlos-zambardino.jpg",
+      "fallbackImg": "https://i.postimg.cc/yd1dVzxC/Whats-App-Image-2026-09-14-at-13-56-44.jpg",
+      "quote": "“Vender bem não é convencer; é ajudar o cliente a tomar uma boa decisão através de método, relacionamento e confiança.”",
+      "bio": [
+        "Carlos Zambardino é advogado, empresário, líder comercial e especialista em vendas de alta performance, reconhecido por construir resultados consistentes a partir de relacionamento, confiança, geração de valor e excelência na experiência do cliente.",
+        "Formado em Direito, construiu sua trajetória no mercado imobiliário desenvolvendo uma abordagem comercial que vai além da negociação: vender é compreender pessoas, gerar confiança, comunicar valor e conduzir decisões com clareza e ética.",
+        "Sua carreira reúne resultados expressivos: foi Top 1 da RE/MAX Brasil em 2018, 2019 e 2021, esteve entre os Top 3 nacionais em 2022 e 2023, tornou-se o primeiro integrante do Diamond Club da RE/MAX Brasil e ajudou a construir a RE/MAX Trieto, reconhecida entre as operações de maior desempenho da rede no país.",
+        "Ao longo dessa trajetória, também se consolidou como referência em liderança comercial, formação de equipes, cultura de alta performance e desenvolvimento de profissionais, mostrando que resultados sustentáveis não dependem apenas de talento individual, mas de método, ambiente, confiança e liderança.",
+        "No FreeDoc$ Summit, sua experiência se conecta diretamente a um dos maiores desafios da carreira médica: entender que excelência técnica, sozinha, não garante crescimento. Médicos também precisam aprender a comunicar valor, liderar equipes, construir cultura, gerar confiança e desenvolver processos comerciais consistentes."
+      ]
+    },
+    "fernando-queiroz": {
+      "name": "Fernando Queiroz",
+      "role": "Economista, Empreendedor, Consultor e Gestor de Investimentos · Especialista em Mercados de Capitais e Planejamento Financeiro Pessoal e Familiar",
+      "badge": "Finanças & Investimentos",
+      "img": "assets/speakers/fernando-queiroz.jpg",
+      "fallbackImg": "https://i.postimg.cc/XJjJV0JR/Whats-App-Image-2026-09-14-at-14-15-06.jpg",
+      "quote": "“Ganhar bem não é o mesmo que construir riqueza. Para conquistar liberdade real, é preciso transformar renda em patrimônio e segurança.”",
+      "bio": [
+        "Fernando Queiroz é economista, empreendedor, consultor e gestor de investimentos habilitado pela CVM, especialista em mercados de capitais e planejamento financeiro pessoal e familiar.",
+        "Com formação em Administração, pós-graduação em Economia e MBA em Finanças pela FGV, construiu uma trajetória sólida no mercado financeiro, com atuação em grandes instituições nos segmentos de alta renda e Corporate Banking.",
+        "Há mais de duas décadas trabalha com finanças e, desde 2017, dedica-se ao planejamento financeiro pessoal, ajudando famílias, empresários e profissionais liberais a organizarem suas finanças, protegerem patrimônio, estruturarem investimentos e tomarem decisões de longo prazo com mais clareza e segurança.",
+        "À frente da Empera, participa de uma operação que hoje acompanha e orienta aproximadamente R$ 1 bilhão em patrimônio, já tendo contribuído para a transformação financeira de mais de 120 famílias.",
+        "Sua abordagem vai além de simplesmente investir melhor. Fernando trata o planejamento financeiro como uma ferramenta para transformar renda em patrimônio, patrimônio em segurança e segurança em liberdade de escolha.",
+        "No FreeDoc$ Summit, sua contribuição está diretamente ligada a uma das viradas mais importantes da carreira médica: compreender que ganhar bem não é o mesmo que construir riqueza. Para conquistar liberdade real, o médico precisa aprender a proteger, organizar e direcionar o patrimônio de forma estratégica, criando fontes de renda que não dependam exclusivamente do próprio trabalho."
+      ]
+    }
+  },
+  "agenda": [
+    [
+      [
+        "08:30",
+        "A Engrenagem",
+        "Abertura e diagnóstico da sobrecarga médica: rompendo com a rotina escassa"
+      ],
+      [
+        "10:30",
+        "Coffee Break",
+        "Pausa para café, troca de experiências e conexões no lounge"
+      ],
+      [
+        "11:00",
+        "A Engrenagem",
+        "Mentalidade estratégica e desconstrução do modelo tradicional de produção"
+      ],
+      [
+        "13:00",
+        "Almoço",
+        "Intervalo para almoço e relacionamento"
+      ],
+      [
+        "14:00",
+        "As Gaiolas",
+        "Identificação das armadilhas da carreira médica, contratos e dependência de agenda"
+      ],
+      [
+        "15:30",
+        "Coffee Break",
+        "Pausa para café e networking"
+      ],
+      [
+        "16:00",
+        "As Gaiolas",
+        "Estratégias práticas e jurídicas para romper com estruturas limitantes com segurança"
+      ],
+      [
+        "18:00",
+        "Coquetel & Networking",
+        "Encerramento do Dia 1 com coquetel exclusivo entre médicos e palestrantes"
+      ]
+    ],
+    [
+      [
+        "08:30",
+        "Negócios",
+        "A medicina como ecossistema: visão empresarial, branding e atração de pacientes particulares"
+      ],
+      [
+        "10:30",
+        "Coffee Break",
+        "Pausa estratégica e conexões"
+      ],
+      [
+        "11:00",
+        "Negócios",
+        "Liderança de equipes, processos comerciais de alta performance e uso de IA na prática médica"
+      ],
+      [
+        "12:00",
+        "Almoço",
+        "Intervalo para almoço e troca de experiências"
+      ],
+      [
+        "14:00",
+        "Patrimônio e Renda Passiva",
+        "Da receita clínica à construção de patrimônio sólido: blindagem e planejamento financeiro"
+      ],
+      [
+        "15:30",
+        "Coffee Break",
+        "Pausa para café e relacionamento"
+      ],
+      [
+        "16:00",
+        "Patrimônio e Renda Passiva",
+        "Criação de fontes de renda desvinculadas do próprio tempo para a conquista da liberdade médica"
+      ],
+      [
+        "18:00",
+        "Encerramento",
+        "Consolidação do plano de ação individual e encerramento oficial do Summit"
+      ]
+    ]
+  ]
+}
