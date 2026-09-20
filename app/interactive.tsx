@@ -7,7 +7,31 @@ import {Tabs,TabsList,TabsTrigger,TabsContent} from '@/components/ui/tabs';
 import {stages,faqs} from './content';
 import original from './original-data.json';
 export function track(event:string,detail:Record<string,unknown>={}){const w=window as unknown as {dataLayer?:unknown[]};w.dataLayer=w.dataLayer||[];w.dataLayer.push({event,...detail});}
-export function Motion(){useEffect(()=>{const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;let busy=false;const sections=Array.from(document.querySelectorAll<HTMLElement>('[data-scene]'));const frame=()=>{busy=false;const h=innerHeight;document.documentElement.style.setProperty('--scroll',String(scrollY/(document.documentElement.scrollHeight-h)||0));for(const el of sections){const r=el.getBoundingClientRect();if(r.bottom>0&&r.top<h){const p=Math.max(0,Math.min(1,(h-r.top)/(h+r.height)));el.style.setProperty('--scene',String(p));el.style.setProperty('--turn',`${p*160}deg`);}}};const scroll=()=>{if(!busy&&!reduce){busy=true;requestAnimationFrame(frame)}};const observer=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('in-view');const event=(e.target as HTMLElement).dataset.event;if(event)track(event);observer.unobserve(e.target)}},{threshold:.12});document.querySelectorAll('[data-reveal],[data-event]').forEach(e=>observer.observe(e));addEventListener('scroll',scroll,{passive:true});frame();return()=>{observer.disconnect();removeEventListener('scroll',scroll)}},[]);return <div className="reading-progress" aria-hidden="true"/>}
+export function Motion(){
+ useEffect(()=>{
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  let raf=0;
+  const visible=new Set<HTMLElement>();
+  const scenes=Array.from(document.querySelectorAll<HTMLElement>('[data-scene]'));
+  const frame=()=>{
+   raf=0;
+   const h=innerHeight;
+   document.documentElement.style.setProperty('--scroll',String(Math.min(1,scrollY/Math.max(1,document.documentElement.scrollHeight-h))));
+   if(reduced.matches)return;
+   for(const el of visible){const r=el.getBoundingClientRect();const p=Math.max(0,Math.min(1,(h-r.top)/(h+r.height)));el.style.setProperty('--scene',String(p));el.style.setProperty('--turn',`${p*160}deg`)}
+  };
+  const schedule=()=>{if(!raf)raf=requestAnimationFrame(frame)};
+  const sceneObserver=new IntersectionObserver(entries=>{for(const e of entries){if(e.isIntersecting)visible.add(e.target as HTMLElement);else visible.delete(e.target as HTMLElement)}schedule()});
+  scenes.forEach(el=>sceneObserver.observe(el));
+  const groups='.speakers,.path-cards,.four-grid,.pillars,.execution-line,.tickets,.value-indicators,.tags';
+  document.querySelectorAll(groups).forEach(group=>Array.from(group.children).forEach((el,i)=>{const node=el as HTMLElement;node.dataset.reveal='';node.style.setProperty('--reveal-delay',`${Math.min(i%4,3)*65}ms`)}));
+  const observer=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('in-view');const event=(e.target as HTMLElement).dataset.event;if(event)track(event);observer.unobserve(e.target)}},{threshold:0,rootMargin:'0px 0px -35px 0px'});
+  document.querySelectorAll('[data-reveal],[data-event]').forEach(e=>observer.observe(e));
+  addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule);reduced.addEventListener('change',schedule);frame();
+  return()=>{observer.disconnect();sceneObserver.disconnect();cancelAnimationFrame(raf);removeEventListener('scroll',schedule);removeEventListener('resize',schedule);reduced.removeEventListener('change',schedule)};
+ },[]);
+ return <div className="reading-progress" aria-hidden="true"/>;
+}
 const nav=[['trilha','A Trilha'],['experiencia','A Experiência'],['palestrantes','Palestrantes'],['programacao','Programação'],['ingressos','Ingressos'],['local','Local'],['faq','FAQ']];
 export function Header(){const [open,setOpen]=useState(false);return <><header className="site-header"><a className="brand" href="#top" aria-label="FreeDoc$ Summit, início">Free<span>Doc$</span><small>SUMMIT 2026</small></a><nav aria-label="Menu principal">{nav.map(([id,label])=><a key={id} href={'#'+id}>{label}</a>)}</nav><a className="button small header-cta" href="#ingressos">Quero participar <ArrowUpRight size={16}/></a><Dialog open={open} onOpenChange={setOpen}><DialogTrigger asChild><button className="menu-button" aria-label="Abrir menu"><Menu/></button></DialogTrigger><DialogContent className="menu-dialog"><DialogTitle>Explore o Summit</DialogTitle><DialogDescription>A Trilha da Liberdade Médica</DialogDescription><nav>{nav.map(([id,label])=><a key={id} href={'#'+id} onClick={()=>setOpen(false)}>{label}<ArrowUpRight size={20}/></a>)}</nav></DialogContent></Dialog></header><a className="mobile-cta" href="#ingressos">Sua próxima década começa aqui <span>Participar ↗</span></a></>}
 export function CTA({href,children,event,className=''}:{href:string;children:React.ReactNode;event?:string;className?:string}){return <a className={'button '+className} href={href} onClick={()=>event&&track(event)}>{children}<ArrowUpRight size={18}/></a>}

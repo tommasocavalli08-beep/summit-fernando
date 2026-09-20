@@ -14,3 +14,35 @@
 
 /* Subtle rounding for the orange calls to action. */
 .button:not(.outline){border-radius:6px}
+
+/* Ambient venue film, scoped to the location rather than the hero. */
+.venue-cinematic{position:relative;isolation:isolate;overflow:hidden;background:#090a0b;max-width:none}
+.venue-backdrop{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.venue-backdrop>img,.venue-backdrop>video{position:absolute;right:0;top:0;width:65%;height:100%;object-fit:cover;object-position:center 45%;filter:saturate(.55);opacity:.38}
+.venue-backdrop>video{opacity:0;transition:opacity .6s}
+.venue-backdrop>video.is-ready{opacity:.38}
+.venue-backdrop-shade{position:absolute;inset:0;background:linear-gradient(90deg,#090a0b 12%,#090a0be6 36%,#090a0b33 75%),linear-gradient(0deg,#090a0b,transparent 20%,transparent 80%,#090a0b)}
+.venue-cinematic .venue-image{align-self:center;border:1px solid #ffffff22;box-shadow:0 24px 90px #0005}
+[data-reveal].in-view{animation-delay:var(--reveal-delay,0ms)}
+.value-stage .diagram-icon,.gold-stage .diagram-icon,.freedom-end>svg{transform:translateY(calc((.5 - var(--scene,.5))*26px)) scale(calc(.95 + var(--scene,.5)*.1))}
+.path-cards article,.speaker,.ticket,.stage-picker button{transition:border-color .3s,background .3s,box-shadow .3s}
+.button:active,.stage-picker button:active{transform:scale(.98)}
+.speaker:focus-visible .speaker-open,.speaker:active .speaker-open{background:var(--orange);color:#090a0b}
+@media(hover:hover) and (pointer:fine){.path-cards article:hover,.ticket:hover{border-color:#f2652280;box-shadow:0 12px 45px #0003}}
+@media(max-width:700px){
+ .venue-backdrop>img,.venue-backdrop>video{width:100%;object-position:center;opacity:.23}
+ .venue-backdrop>video{opacity:0}.venue-backdrop>video.is-ready{opacity:.23}
+ .venue-backdrop-shade{background:linear-gradient(90deg,#090a0bcc,#090a0b66),linear-gradient(0deg,#090a0b,transparent 22%,transparent 80%,#090a0b)}
+ [data-reveal].in-view{animation-duration:.65s;animation-delay:0ms}
+ .speaker-open{background:var(--orange);color:#090a0b}
+ .speaker-image img{filter:none}
+ .button:hover{transform:none}.button:active{transform:scale(.98)}
+ .mobile-cta{padding-bottom:max(12px,env(safe-area-inset-bottom))}
+ .day-tabs [role=tab],.menu-button{min-height:44px}
+}
+@media(prefers-reduced-motion:reduce){
+ [data-reveal].in-view{animation:none!important}
+ .hero-image,.diagram-icon,.diagram-frame:before,.freedom-end>svg,.time-number>svg{transform:none!important}
+ .venue-backdrop>video{display:none}
+ .button,.speaker,.ticket,.stage-picker button{transition:none}
+}
