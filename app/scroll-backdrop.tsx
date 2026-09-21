@@ -65,9 +65,12 @@ export function ScrollBackdrop() {
       reduced.removeEventListener('change', preference);
     };
   }, []);
-  return <div className="journey-backdrop" aria-hidden="true">
-    <img src="/assets/motion/space220-poster.jpg" alt="" width="512" height="910"/>
-    <video ref={ref} muted playsInline preload="auto" disablePictureInPicture tabIndex={-1}/>
-    <div className="journey-backdrop-shade"/>
-  </div>;
+  return <figure className="scroll-film" aria-hidden="true">
+    <div className="scroll-film-frame">
+      <img src="/assets/motion/space220-poster.jpg" alt="" width="512" height="910"/>
+      <video ref={ref} muted playsInline preload="auto" disablePictureInPicture tabIndex={-1}/>
+    </div>
+    <figcaption>SPACE 220</figcaption>
+    <div className="scroll-film-progress"/>
+  </figure>;
 }

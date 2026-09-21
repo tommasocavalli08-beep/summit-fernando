@@ -15,18 +15,16 @@
 /* Subtle rounding for the orange calls to action. */
 .button:not(.outline){border-radius:6px}
 
-/* One fixed ambient film for the complete journey, below every content layer. */
-body:has(.journey-backdrop){isolation:isolate}
-.journey-backdrop{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background:#090a0b}
-.journey-backdrop>img,.journey-backdrop>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.32;filter:saturate(.55)}
-.journey-backdrop>video{opacity:0}
-.journey-backdrop>video.is-ready{opacity:.32}
-.journey-backdrop-shade{position:absolute;inset:0;background:linear-gradient(90deg,#090a0b80,#090a0b18 65%),linear-gradient(0deg,#090a0b55,transparent 60%)}
-body:has(.journey-backdrop) main .section,body:has(.journey-backdrop) .story-stage{background-color:transparent}
-body:has(.journey-backdrop) .hero-image{opacity:.2}
-body:has(.journey-backdrop) .hero-shade{background:linear-gradient(90deg,#090a0b66,transparent)}
-@media(max-width:700px){.journey-backdrop>img,.journey-backdrop>video.is-ready{opacity:.27}}
-@media(prefers-reduced-motion:reduce){.journey-backdrop>video{display:none}}
+/* A compact portrait window preserves the full frame while the page scrolls. */
+.scroll-film{position:fixed;right:24px;bottom:24px;width:132px;z-index:34;margin:0;pointer-events:none;border:1px solid #ffffff30;border-radius:10px;background:#111214;box-shadow:0 10px 35px #0006;overflow:hidden}
+.scroll-film-frame{position:relative;aspect-ratio:512/910;background:#090a0b}
+.scroll-film-frame>img,.scroll-film-frame>video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.scroll-film-frame>video{opacity:0}
+.scroll-film-frame>video.is-ready{opacity:1}
+.scroll-film figcaption{padding:8px 10px;color:#d6d8db;font:9px/1.4 monospace;letter-spacing:1px}
+.scroll-film-progress{height:2px;background:var(--orange);transform:scaleX(var(--scroll,0));transform-origin:left}
+@media(max-width:700px){.scroll-film{width:80px;right:10px;bottom:calc(68px + env(safe-area-inset-bottom));border-radius:7px}.scroll-film figcaption{padding:5px 6px;font-size:7px;letter-spacing:.3px}}
+@media(prefers-reduced-motion:reduce){.scroll-film-frame>video{display:none}}
 
 /* Ambient venue film, scoped to the location rather than the hero. */
 .venue-cinematic{position:relative;isolation:isolate;overflow:hidden;background:#090a0b;max-width:none}
