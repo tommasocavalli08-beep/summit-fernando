@@ -5,6 +5,7 @@ import {useEffect, useRef} from 'react';
 /** Decorative, silent footage. Native scrolling is never intercepted. */
 export function ScrollBackdrop() {
   const ref = useRef<HTMLVideoElement>(null);
+  const filmRef = useRef<HTMLElement>(null);
   useEffect(() => {
     const video = ref.current;
     if (!video) return;
@@ -73,7 +74,15 @@ export function ScrollBackdrop() {
       reduced.removeEventListener('change', preference);
     };
   }, []);
-  return <figure className="scroll-film" aria-hidden="true">
+  useEffect(() => {
+    const film = filmRef.current;
+    if (!film) return;
+    const touchLike = matchMedia('(hover: none), (pointer: coarse)');
+    const toggle = () => { if (touchLike.matches) film.classList.toggle('is-expanded'); };
+    film.addEventListener('click', toggle);
+    return () => film.removeEventListener('click', toggle);
+  }, []);
+  return <figure ref={filmRef} className="scroll-film" aria-hidden="true">
     <div className="scroll-film-frame">
       <img src="/assets/motion/space220-poster.jpg" alt="" width="512" height="910"/>
       <video ref={ref} muted playsInline preload="auto" disablePictureInPicture tabIndex={-1}/>
