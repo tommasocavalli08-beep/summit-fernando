@@ -15,6 +15,19 @@
 /* Subtle rounding for the orange calls to action. */
 .button:not(.outline){border-radius:6px}
 
+/* One fixed ambient film for the complete journey, below every content layer. */
+body:has(.journey-backdrop){isolation:isolate}
+.journey-backdrop{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background:#090a0b}
+.journey-backdrop>img,.journey-backdrop>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.32;filter:saturate(.55)}
+.journey-backdrop>video{opacity:0}
+.journey-backdrop>video.is-ready{opacity:.32}
+.journey-backdrop-shade{position:absolute;inset:0;background:linear-gradient(90deg,#090a0b80,#090a0b18 65%),linear-gradient(0deg,#090a0b55,transparent 60%)}
+body:has(.journey-backdrop) main .section,body:has(.journey-backdrop) .story-stage{background-color:transparent}
+body:has(.journey-backdrop) .hero-image{opacity:.2}
+body:has(.journey-backdrop) .hero-shade{background:linear-gradient(90deg,#090a0b66,transparent)}
+@media(max-width:700px){.journey-backdrop>img,.journey-backdrop>video.is-ready{opacity:.27}}
+@media(prefers-reduced-motion:reduce){.journey-backdrop>video{display:none}}
+
 /* Ambient venue film, scoped to the location rather than the hero. */
 .venue-cinematic{position:relative;isolation:isolate;overflow:hidden;background:#090a0b;max-width:none}
 .venue-backdrop{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}

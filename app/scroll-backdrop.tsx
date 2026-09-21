@@ -7,21 +7,20 @@ export function ScrollBackdrop() {
   const ref = useRef<HTMLVideoElement>(null);
   useEffect(() => {
     const video = ref.current;
-    const section = video?.closest<HTMLElement>('section');
-    if (!video || !section) return;
+    if (!video) return;
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     const connection = (navigator as Navigator & {connection?: {saveData?: boolean}}).connection;
-    let frame = 0, active = false, target = 0, disposed = false;
+    let frame = 0, active = true, target = 0, disposed = false;
     const seek = () => {
-      if (!active || reduced.matches || video.seeking || video.readyState < 2 || !Number.isFinite(video.duration)) return;
+      if (!active || reduced.matches || video.seeking || video.readyState < 1 || !Number.isFinite(video.duration)) return;
       const time = target * Math.max(0, video.duration - .08);
       if (Math.abs(video.currentTime - time) > .055) video.currentTime = time;
     };
     const update = () => {
       frame = 0;
       if (!active || document.hidden) return;
-      const rect = section.getBoundingClientRect();
-      target = Math.max(0, Math.min(1, (innerHeight - rect.top) / (innerHeight + rect.height)));
+      const root = document.documentElement;
+      target = Math.max(0, Math.min(1, scrollY / Math.max(1, root.scrollHeight - root.clientHeight)));
       seek();
     };
     const schedule = () => { if (!frame && active) frame = requestAnimationFrame(update); };
@@ -32,15 +31,15 @@ export function ScrollBackdrop() {
         video.load();
       }
     };
-    const observer = new IntersectionObserver(([entry]) => {
-      active = entry.isIntersecting;
-      if (active) { load(); schedule(); }
-    }, {rootMargin: '300px 0px'});
-    observer.observe(section);
+    const observer = new ResizeObserver(schedule);
+    observer.observe(document.body);
+    load(); schedule();
+    let primed = false;
     // A first touch also primes inline decoding on iOS without playing audio.
     const prime = () => {
-      if (!active || reduced.matches || connection?.saveData || !video.src) return;
-      void video.play().then(() => { video.pause(); if (!disposed) schedule(); }).catch(() => {});
+      if (primed || reduced.matches || connection?.saveData || !video.getAttribute('src')) return;
+      primed = true;
+      void video.play().then(() => { video.pause(); if (!disposed) schedule(); }).catch(() => { primed = false; });
     };
     const preference = () => {
       video.pause();
@@ -49,7 +48,8 @@ export function ScrollBackdrop() {
       } else if (active) { load(); schedule(); }
     };
     video.addEventListener('loadeddata', ready);
-    video.addEventListener('seeked', seek);
+    video.addEventListener('seeked', schedule);
+    video.addEventListener('loadedmetadata', schedule);
     video.addEventListener('error', () => video.classList.remove('is-ready'), {once: true});
     addEventListener('scroll', schedule, {passive: true});
     addEventListener('resize', schedule);
@@ -58,15 +58,16 @@ export function ScrollBackdrop() {
     reduced.addEventListener('change', preference);
     return () => {
       disposed = true; observer.disconnect(); cancelAnimationFrame(frame); video.pause();
-      video.removeEventListener('loadeddata', ready); video.removeEventListener('seeked', seek);
+      video.removeEventListener('loadeddata', ready); video.removeEventListener('seeked', schedule);
+      video.removeEventListener('loadedmetadata', schedule);
       removeEventListener('scroll', schedule); removeEventListener('resize', schedule);
       removeEventListener('touchstart', prime); document.removeEventListener('visibilitychange', schedule);
       reduced.removeEventListener('change', preference);
     };
   }, []);
-  return <div className="venue-backdrop" aria-hidden="true">
-    <img src="/assets/motion/space220-poster.jpg" alt="" loading="lazy" width="512" height="910"/>
-    <video ref={ref} muted playsInline preload="none" disablePictureInPicture tabIndex={-1}/>
-    <div className="venue-backdrop-shade"/>
+  return <div className="journey-backdrop" aria-hidden="true">
+    <img src="/assets/motion/space220-poster.jpg" alt="" width="512" height="910"/>
+    <video ref={ref} muted playsInline preload="auto" disablePictureInPicture tabIndex={-1}/>
+    <div className="journey-backdrop-shade"/>
   </div>;
 }
