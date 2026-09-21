@@ -15,6 +15,28 @@
 /* Subtle rounding for the orange calls to action. */
 .button:not(.outline){border-radius:6px}
 
+/* Subtle finish: warm highlights, consistent corners, clearer interactions. */
+body{-webkit-font-smoothing:antialiased}
+.hero h1,h2{text-wrap:balance}
+.hero-eyebrow>span:first-child{border-left:2px solid var(--orange);padding-left:12px}
+.button:not(.outline){background:linear-gradient(135deg,#ff7835,#f26522 70%);box-shadow:inset 0 1px 0 #ffffff30,0 5px 20px #f2652212}
+.button.outline{border-radius:6px}
+.button>svg{transition:transform .25s ease}
+.path-cards article,.ticket,.map-dashboard{border-radius:12px;box-shadow:inset 0 1px 0 #ffffff06}
+.ticket{background:linear-gradient(145deg,#1b1e23,#121417)}
+.vip-ticket{border-color:#f2652270;background:radial-gradient(ellipse at top right,#f2652212,transparent 65%),linear-gradient(145deg,#1b1e23,#121417)}
+.stage-picker button{border-radius:8px}
+.speaker-image{border-radius:10px}
+.speaker-open{border-radius:50%}
+.speaker-role{line-height:1.6}
+.map-dashboard{background:linear-gradient(145deg,#1b1e24,#101113)}
+.form-grid input{border-radius:6px;transition:border-color .2s,box-shadow .2s;background:#111318}
+.form-grid input:focus{border-color:var(--orange);box-shadow:0 0 0 3px #f2652215}
+.footer-links a,.text-link{transition:color .2s}
+.footer-links a:hover{color:var(--orange)}
+@media(hover:hover) and (pointer:fine){.button:hover>svg{transform:translate(2px,-2px)}.button:not(.outline):hover{background:linear-gradient(135deg,#ff894f,#ff7432)}}
+@media(max-width:700px){.path-cards article,.ticket,.map-dashboard{border-radius:10px}.form-grid input{font-size:16px}}
+
 /* A compact portrait window preserves the full frame while the page scrolls. */
 .scroll-film{position:fixed;right:24px;bottom:24px;width:132px;z-index:34;margin:0;pointer-events:none;border:1px solid #ffffff30;border-radius:10px;background:#111214;box-shadow:0 10px 35px #0006;overflow:hidden}
 .scroll-film-frame{position:relative;aspect-ratio:512/910;background:#090a0b}
