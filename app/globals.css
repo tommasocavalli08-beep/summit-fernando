@@ -15,6 +15,26 @@
 /* Subtle rounding for the orange calls to action. */
 .button:not(.outline){border-radius:6px}
 
+/* Touch devices use viewport entry instead of hover for visual feedback. */
+@media(hover:none),(pointer:coarse){
+ .speaker-image img{transition:transform .65s ease,filter .65s ease}
+ .speaker.motion-active .speaker-image img{transform:scale(1.025);filter:saturate(1)}
+ .speaker.motion-active .speaker-open{background:var(--orange);color:#090a0b}
+ .path-cards article.motion-active,.ticket.motion-active{border-color:#f2652266;box-shadow:inset 0 1px 0 #ffffff09,0 10px 30px #0002}
+ .video.motion-active .play-icon{border-color:var(--orange);box-shadow:0 0 0 7px #f2652212}
+ .button:active>svg{transform:translate(2px,-2px)}
+ .stage-picker button:active{border-color:var(--orange)}
+ .speaker:active .speaker-image img{transform:scale(1.04)}
+ .video button:hover img{transform:none}
+ .stage-picker button:not(.selected):hover{border-color:#37393f;background:#1b1c1f}
+}
+@media(max-width:700px) and (prefers-reduced-motion:no-preference){
+ .branch-diagram:after{transform-origin:top;transform:scaleY(clamp(.1,calc(var(--scene,0)*1.8),1));background:var(--orange)}
+}
+@media(prefers-reduced-motion:reduce){
+ .speaker.motion-active .speaker-image img,.speaker:active .speaker-image img{transform:none!important}
+}
+
 /* Subtle finish: warm highlights, consistent corners, clearer interactions. */
 body{-webkit-font-smoothing:antialiased}
 .hero h1,h2{text-wrap:balance}

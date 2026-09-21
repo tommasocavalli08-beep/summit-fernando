@@ -12,10 +12,13 @@ export function Motion(){
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
   let raf=0;
   const visible=new Set<HTMLElement>();
-  const scenes=Array.from(document.querySelectorAll<HTMLElement>('[data-scene]'));
+  const scenes=Array.from(document.querySelectorAll<HTMLElement>('[data-scene],.stage-diagram,.time-number,.branch-diagram,.freedom-end'));
+  const accents=Array.from(document.querySelectorAll<HTMLElement>('.speaker,.path-cards article,.ticket,.video'));
+  const accentObserver=new IntersectionObserver(entries=>{for(const e of entries)e.target.classList.toggle('motion-active',e.isIntersecting)},{rootMargin:'-15% 0px -15% 0px',threshold:.15});
+  accents.forEach(el=>accentObserver.observe(el));
   const frame=()=>{
    raf=0;
-   const h=innerHeight;
+   const h=window.visualViewport?.height||innerHeight;
    document.documentElement.style.setProperty('--scroll',String(Math.min(1,scrollY/Math.max(1,document.documentElement.scrollHeight-h))));
    if(reduced.matches)return;
    for(const el of visible){const r=el.getBoundingClientRect();const p=Math.max(0,Math.min(1,(h-r.top)/(h+r.height)));el.style.setProperty('--scene',String(p));el.style.setProperty('--turn',`${p*160}deg`)}
@@ -27,8 +30,12 @@ export function Motion(){
   document.querySelectorAll(groups).forEach(group=>Array.from(group.children).forEach((el,i)=>{const node=el as HTMLElement;node.dataset.reveal='';node.style.setProperty('--reveal-delay',`${Math.min(i%4,3)*65}ms`)}));
   const observer=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('in-view');const event=(e.target as HTMLElement).dataset.event;if(event)track(event);observer.unobserve(e.target)}},{threshold:0,rootMargin:'0px 0px -35px 0px'});
   document.querySelectorAll('[data-reveal],[data-event]').forEach(e=>observer.observe(e));
-  addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule);reduced.addEventListener('change',schedule);frame();
-  return()=>{observer.disconnect();sceneObserver.disconnect();cancelAnimationFrame(raf);removeEventListener('scroll',schedule);removeEventListener('resize',schedule);reduced.removeEventListener('change',schedule)};
+  addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule);
+  window.visualViewport?.addEventListener('resize',schedule);
+  window.visualViewport?.addEventListener('scroll',schedule,{passive:true});
+  addEventListener('pageshow',schedule);
+  reduced.addEventListener('change',schedule);frame();
+  return()=>{observer.disconnect();sceneObserver.disconnect();accentObserver.disconnect();window.visualViewport?.removeEventListener('resize',schedule);window.visualViewport?.removeEventListener('scroll',schedule);removeEventListener('pageshow',schedule);cancelAnimationFrame(raf);removeEventListener('scroll',schedule);removeEventListener('resize',schedule);reduced.removeEventListener('change',schedule)};
  },[]);
  return <div className="reading-progress" aria-hidden="true"/>;
 }

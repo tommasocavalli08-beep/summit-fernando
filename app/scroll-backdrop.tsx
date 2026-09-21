@@ -47,21 +47,29 @@ export function ScrollBackdrop() {
         video.removeAttribute('src'); video.load(); video.classList.remove('is-ready');
       } else if (active) { load(); schedule(); }
     };
+    video.muted = true; video.defaultMuted = true;
     video.addEventListener('loadeddata', ready);
+    video.addEventListener('canplay', ready);
     video.addEventListener('seeked', schedule);
     video.addEventListener('loadedmetadata', schedule);
     video.addEventListener('error', () => video.classList.remove('is-ready'), {once: true});
     addEventListener('scroll', schedule, {passive: true});
     addEventListener('resize', schedule);
     addEventListener('touchstart', prime, {passive: true});
+    addEventListener('touchend', prime, {passive: true});
+    addEventListener('pageshow', schedule);
+    window.visualViewport?.addEventListener('resize', schedule);
     document.addEventListener('visibilitychange', schedule);
     reduced.addEventListener('change', preference);
     return () => {
       disposed = true; observer.disconnect(); cancelAnimationFrame(frame); video.pause();
+      video.removeEventListener('canplay', ready);
       video.removeEventListener('loadeddata', ready); video.removeEventListener('seeked', schedule);
       video.removeEventListener('loadedmetadata', schedule);
       removeEventListener('scroll', schedule); removeEventListener('resize', schedule);
-      removeEventListener('touchstart', prime); document.removeEventListener('visibilitychange', schedule);
+      removeEventListener('touchstart', prime);
+      removeEventListener('touchend', prime); removeEventListener('pageshow', schedule);
+      window.visualViewport?.removeEventListener('resize', schedule); document.removeEventListener('visibilitychange', schedule);
       reduced.removeEventListener('change', preference);
     };
   }, []);
